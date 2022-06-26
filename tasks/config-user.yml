@@ -1,0 +1,26 @@
+---
+- name: Create Docker Group
+  group:
+    name: docker
+    state: present
+
+- name: Create User
+  user:
+    name: "{{ user }}"
+    groups:
+      - sudo
+      - docker
+    state: present
+    shell: /bin/bash
+    system: no
+    createhome: yes
+    home: "/home/{{ user }}"
+
+- name: Create ssh keypair
+  openssh_keypair:
+    path: ~/.ssh/id_rsa
+    owner: "{{ user }}"
+    type: rsa
+    size: 4096
+    state: present
+    passphrase: "{{ ssh_passphrase }}"

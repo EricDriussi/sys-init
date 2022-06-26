@@ -1,0 +1,65 @@
+---
+packages:
+  cli:
+    - alacritty
+    - btop
+    - curl
+    - delta
+    - docker
+    - docker-compose
+    - exa
+    - expect
+    - fzf
+    - git
+    - htop
+    - keepassxc
+    - lazygit
+    - libjpeg-dev
+    - libxtst-dev
+    - neovim
+    - node
+    - noto-fonts
+    - noto-fonts-emoji
+    - openssh
+    - python
+    - python3-pip
+    - ripgrep
+    - rsync
+    - stow
+    - tree
+    - ttf-fira-code
+    - ufw
+    - vifm
+    - vim
+    - z.lua
+    - zathura
+    - zlib1g-dev
+    - zsh
+
+  gui:
+    - brave-browser
+    - chromium
+    - dunst
+    - flameshot
+    - gsimplecal
+    - libre-office
+    - lxappearance
+    - nextcloud-desktop
+    - obsidian
+    - peek
+    - polybar
+    - rofi
+    - telegram
+    - thunar
+    - timeshift
+    - vlc
+
+  nvim:
+    - black
+    - eslint
+    - lua
+    - shellcheck
+    - shellharden
+    - stylelint
+    - tsserver
+    - yamllint

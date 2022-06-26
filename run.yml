@@ -1,0 +1,12 @@
+---
+- name: CONFIG USER
+  tags: user
+  hosts: root
+  tasks:
+    - import_tasks: tasks/config-user.yml
+
+- name: INSTALL ESSENTIALS
+  tags: install
+  hosts: ansible
+  tasks:
+    - import_tasks: tasks/essentials.yml
