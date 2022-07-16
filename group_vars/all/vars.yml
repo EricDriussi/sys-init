@@ -7,32 +7,53 @@ packages:
     - delta
     - docker
     - docker-compose
+    - downgrade
+    - emojione-picker-git
     - exa
     - expect
+    - feh
     - fzf
     - git
     - htop
-    - keepassxc
+    - hugo
     - lazygit
     - libjpeg-dev
     - libxtst-dev
+    - mmv
     - neovim
     - node
     - noto-fonts
     - noto-fonts-emoji
+    - npm
+    - nsxiv
     - openssh
+    - poppler-glib
     - python
     - python3-pip
     - ripgrep
     - rsync
     - stow
+    - touchpad-toggle-xinput
     - tree
     - ttf-fira-code
+    - ttf-fira-code
+    - ttf-jetbrains-mono
+    - ttf-liberation
+    - ttf-nerd-fonts-symbols
+    - ttf-opensans
+    - ttf-ubuntu-font-family
+    - ueberzug
     - ufw
+    - unrar
+    - unzip
     - vifm
     - vim
+    - xed
+    - xfce4-terminal
+    - yarn
     - z.lua
     - zathura
+    - zathura-pdf-poppler
     - zlib1g-dev
     - zsh
 
@@ -41,17 +62,26 @@ packages:
     - chromium
     - dunst
     - flameshot
+    - gparted
     - gsimplecal
-    - libre-office
+    - keepassxc
+    - libreoffice
     - lxappearance
     - nextcloud-desktop
+    - nitrogen
     - obsidian
     - peek
+    - picom
     - polybar
     - rofi
-    - telegram
+    - telegram-desktop
     - thunar
+    - thunar-archive-plugin
+    - thunar-volman
+    - thunderbird
     - timeshift
+    - tuxguitar
+    - unclutter
     - vlc
 
   nvim:
@@ -60,6 +90,9 @@ packages:
     - lua
     - shellcheck
     - shellharden
+    - shfmt
     - stylelint
+    - stylua
     - tsserver
+    - vim-plug
     - yamllint
