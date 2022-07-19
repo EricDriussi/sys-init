@@ -4,6 +4,14 @@
   package:
     update_cache: yes
     upgrade: yes
+  when: ansible_facts['distribution'] != "Fedora"
+
+- name: Update system
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+  when: ansible_facts['distribution'] == "Fedora"
 
 - name: Install basic packages
   become: true
