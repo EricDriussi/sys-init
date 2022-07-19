@@ -4,17 +4,19 @@
     name: docker
     state: present
 
-- name: Create User
+- name: Ensure Docker User
   user:
     name: "{{ user }}"
     groups:
-      - sudo
       - docker
     state: present
     shell: /bin/bash
-    system: no
-    createhome: yes
-    home: "/home/{{ user }}"
+
+- name: Create ssh dir
+  file:
+    path: ~/.ssh/id_rsa
+    state: directory
+    mode: '0755'
 
 - name: Create ssh keypair
   openssh_keypair:

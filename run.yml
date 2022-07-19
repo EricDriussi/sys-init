@@ -1,7 +1,8 @@
 ---
 - name: CONFIG USER
   tags: user
-  hosts: root
+  hosts: localhost
+  connection: local
   tasks:
     - import_tasks: tasks/config-user.yml
 
