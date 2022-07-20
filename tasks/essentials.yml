@@ -6,6 +6,18 @@
     upgrade: yes
   when: ansible_facts['distribution'] != "Fedora"
 
+- name: Install basic packages
+  become: true
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "{{ packages.cli }}"
+    - "{{ packages.gui }}"
+    - "{{ packages.nvim }}"
+  when: ansible_facts['distribution'] != "Fedora"
+  ignore_errors: true
+
 - name: Update system
   become: true
   dnf:
@@ -13,20 +25,40 @@
     state: latest
   when: ansible_facts['distribution'] == "Fedora"
 
+- name: Add Repos
+  become: true
+  shell: '{{ item }}'
+  with_items:
+    - 'dnf config-manager --add-repo https://raw.githubusercontent.com/rpmsphere/rpmsphere.github.io/master/rpmsphere.repo'
+    - 'dnf config-manager --add-repo https://raw.githubusercontent.com/rpmsphere/rpmsphere.github.io/master/rpmsphere.repo'
+    - 'sudo dnf copr enable atim/lazygit -y'
+    - 'sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/'
+    - 'sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc'
+  when: ansible_facts['distribution'] == "Fedora"
+
 - name: Install basic packages
   become: true
-  package:
-    name: "{{ packages }}"
+  dnf:
+    name: "{{ item }}"
     state: latest
+  with_items:
+    - "{{ packages.cli }}"
+    - "{{ packages.gui }}"
+    - "{{ packages.nvim }}"
+    - "{{ packages.rpm }}"
+    - "{{ packages.npm }}"
+  when: ansible_facts['distribution'] == "Fedora"
+  ignore_errors: true
 
 - name: Install ueberzug
   pip:
     name: ueberzug
+  when: ansible_facts['distribution'] != "Fedora"
 
 - name: Clone dotfiles
   git:
     repo: "{{ dotfiles }}"
-    dest: dotfiles
+    dest: ~/dotfiles
     force: yes
     track_submodules: yes
 
@@ -39,7 +71,7 @@
 - name: Clone nvim config
   git:
     repo: "{{ nvim }}"
-    dest: .config/nvim
+    dest: ~/.config/nvim
     force: yes
 
 - name: Install Vim-Plug
@@ -52,4 +84,4 @@
 - name: Unstow dotfiles
   shell:
     cmd: stow -R *
-    chdir: dotfiles
+    chdir: ~/dotfiles

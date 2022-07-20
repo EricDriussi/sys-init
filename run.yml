@@ -2,12 +2,11 @@
 - name: CONFIG USER
   tags: user
   hosts: localhost
-  connection: local
   tasks:
     - import_tasks: tasks/config-user.yml
 
 - name: INSTALL ESSENTIALS
   tags: install
-  hosts: ansible
+  hosts: localhost
   tasks:
     - import_tasks: tasks/essentials.yml

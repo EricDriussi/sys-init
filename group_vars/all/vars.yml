@@ -4,13 +4,12 @@ packages:
     - alacritty
     - btop
     - curl
-    - delta
+    - git-delta
     - docker
     - docker-compose
     - downgrade
     - emojione-picker-git
     - exa
-    - expect
     - feh
     - fzf
     - git
@@ -21,7 +20,7 @@ packages:
     - libxtst-dev
     - mmv
     - neovim
-    - node
+    - nodejs
     - noto-fonts
     - noto-fonts-emoji
     - npm
@@ -51,14 +50,13 @@ packages:
     - xed
     - xfce4-terminal
     - yarn
-    - z.lua
     - zathura
     - zathura-pdf-poppler
     - zlib1g-dev
     - zsh
 
   gui:
-    - brave-browser
+    - brave-bin
     - chromium
     - dunst
     - flameshot
@@ -94,5 +92,18 @@ packages:
     - stylelint
     - stylua
     - tsserver
-    - vim-plug
     - yamllint
+
+  rpm:
+    - google-noto-fonts-common
+    - google-noto-emoji-color-fonts
+    - mozilla-fira-fonts-common
+    - jetbrains-mono-fonts-all
+    - brave-browser
+    - ShellCheck
+
+  npm:
+    - eslint
+    - stylelint
+    - stylua
+    - tsserver

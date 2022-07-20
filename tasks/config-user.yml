@@ -1,20 +1,23 @@
 ---
 - name: Create Docker Group
+  become: true
   group:
     name: docker
     state: present
 
-- name: Ensure Docker User
+- name: Ensure User Groups
+  become: true
   user:
     name: "{{ user }}"
     groups:
       - docker
+      - wheel
     state: present
     shell: /bin/bash
 
 - name: Create ssh dir
   file:
-    path: ~/.ssh/id_rsa
+    path: ~/.ssh/
     state: directory
     mode: '0755'
 
