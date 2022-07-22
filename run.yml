@@ -5,8 +5,22 @@
   tasks:
     - import_tasks: tasks/config-user.yml
 
-- name: INSTALL ESSENTIALS
+- name: INSTALL
   tags: install
   hosts: localhost
   tasks:
-    - import_tasks: tasks/essentials.yml
+    - import_tasks: tasks/install.yml
+      when: ansible_facts['distribution'] != "Fedora"
+
+- name: INSTALL FEDORA
+  tags: install-fedora
+  hosts: localhost
+  tasks:
+    - import_tasks: tasks/install-fedora.yml
+      when: ansible_facts['distribution'] == "Fedora"
+
+- name: CONFIG
+  tags: config
+  hosts: localhost
+  tasks:
+    - import_tasks: tasks/config.yml

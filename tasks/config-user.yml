@@ -1,4 +1,5 @@
 ---
+
 - name: Create Docker Group
   become: true
   group:
